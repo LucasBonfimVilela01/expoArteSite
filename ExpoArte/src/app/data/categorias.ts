@@ -54,7 +54,7 @@ export const categorias: Categoria[] = [
         descricao: "Retrato em close de uma mulher com expressão determinada.",
       },
       {
-        src: "/thumb live 5.png",
+        src: "/thumblive5.png",
         alt: "Retrato 5",
         titulo: "klasjdk",
         descricao: "aslokdjfaolidjfaopdjofiajdoifajdoi oisadjfaoijdfoia",
@@ -87,12 +87,6 @@ export const categorias: Categoria[] = [
         alt: "Retrato 4",
         titulo: "AAAAAAAAAAAAAAAAAAAAAA",
         descricao: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      },
-      {
-        src: "/thumb live 5.png",
-        alt: "Retrato 5",
-        titulo: "AAAAAAAAAAAAAAAAAAAAAA",
-        descricao: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
       },
     ],
   },

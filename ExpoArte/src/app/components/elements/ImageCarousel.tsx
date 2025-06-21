@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type ImageType = {
   src: string;
@@ -17,6 +19,8 @@ type ImageCarouselProps = {
 };
 
 export default function ImageCarousel({ images }: ImageCarouselProps) {
+  const router = useRouter();
+
   return (
     <div className="relative">
       <style>
@@ -45,7 +49,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
             <div
               className="relative rounded overflow-hidden shadow bg-white flex justify-center items-center group"
               style={{
-                width: "90vw",         // padrão mobile
+                width: "90vw",
                 height: "40vw",
                 maxWidth: "100%",
                 maxHeight: "60vh",
@@ -67,6 +71,28 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
                   }
                 `}
               </style>
+              {/* Botão de expandir */}
+              <button
+                onClick={() =>
+                  router.push(`/imagem/${encodeURIComponent(img.src.replace(/^\//, ""))}`)
+                }
+                className="absolute top-3 left-3 z-10 p-2 rounded-full bg-white hover:bg-opacity-80 transition"
+                style={{
+                  lineHeight: 0,
+                  border: "none",
+                  cursor: "pointer",
+                  boxShadow: "0 2px 8px 0 rgba(0,0,0,0.18)",
+                }}
+                aria-label="Expandir imagem"
+              >
+                <img
+                  src="/expandimage.png"
+                  alt="Expandir"
+                  width={24}
+                  height={24}
+                  style={{ display: "block" }}
+                />
+              </button>
               <Image
                 src={img.src}
                 alt={img.alt}
@@ -75,7 +101,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "contain",
+                  objectFit: "cover",
                   backgroundColor: "#e5e7eb",
                 }}
                 className="rounded"
